@@ -66,21 +66,20 @@ void DMA_Config()
 }
 void ADC_Config()
 {
-	ADC_InitStructure.ADC_ScanConvMode = ENABLE; // Chi dinh quet da kenh
-	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;// Chi dinh che do hoat dong tiep tuc (>< Don)
+	ADC_InitStructure.ADC_ScanConvMode = ENABLE;
+	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
 	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
-	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;// Khong dung trinh kich hoat ben ngoai
+	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
 	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
-	ADC_InitStructure.ADC_NbrOfChannel = 2; //  Luong luong Channel
+	ADC_InitStructure.ADC_NbrOfChannel = 2;
 	ADC_Init(ADC1,&ADC_InitStructure);
 	
 	ADC_RegularChannelConfig(ADC1,ADC_Channel_4,1,ADC_SampleTime_41Cycles5);
 	ADC_RegularChannelConfig(ADC1,ADC_Channel_6,2,ADC_SampleTime_41Cycles5);
 	
-	ADC_DMACmd(ADC1,ENABLE);	// ENABLE ADC1 DMA
-	ADC_Cmd(ADC1,ENABLE);// ENABLE ADC1
-//	ADC_ResetCalibration(ADC1); // Reset hieu chinh lai
+	ADC_DMACmd(ADC1,ENABLE);
+	ADC_Cmd(ADC1,ENABLE);
 
-	ADC_SoftwareStartConvCmd(ADC1,ENABLE);//Bat dau do
+	ADC_SoftwareStartConvCmd(ADC1,ENABLE);
 	
 }
